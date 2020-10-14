@@ -1,11 +1,16 @@
 import React from "react";
-import "./styles.css";
+import List from "./List";
+import data from "./data";
 
 export default function App() {
+  const [people, setPeople] = React.useState(data);
+  console.log(people);
+
   return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
+    <div className="bg-pink-400 h-screen grid place-items-center">
+      <h1>{people.length} Birthdays today </h1>
+      <List people={people} />
+      <button onClick={() => setPeople([])}>Remove all</button>
     </div>
   );
 }
